@@ -26,7 +26,8 @@ print("createScene")
 	timer.performWithDelay(1000,function() GameOverAnim.start(childGroup)  end )
 	homeBtn,restartBtn = LevelDestroyer.gameReset(gameOverGroup,childGroup)
 	
-	
+	local channel = SoundManager.play("sound/game_over.mp3");
+
 end
 
 function scene:enterScene(event)
