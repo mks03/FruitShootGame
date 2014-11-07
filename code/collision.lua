@@ -72,6 +72,8 @@ Collision = {
 			
 			
 			if target.type == "fruits" then
+                               local channel = SoundManager.play("sound/fruit_pop.mp3");
+
 				local localScore = nil
 				if _isDoubleScore then
 						localScore = shooter.fruitsHit * (target.score)
