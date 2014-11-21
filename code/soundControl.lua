@@ -2,9 +2,9 @@
 SoundManager = {
   	play = function(fileName,options)
 
-  		if options == nil{
+  		if options == nil then
   			options={}
-  		}
+  		end
 
 		local loadSound  = audio.loadSound(fileName)
 		soundChannel = audio.play(loadSound,options)

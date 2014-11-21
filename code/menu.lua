@@ -19,13 +19,13 @@ local adArr = {}
 
 
 function scene:createScene(event)
-	
-	bgGroup = self.view
-	bgImage = display.newImage(bgGroup,"images/background_menu.jpg",display.contentCenterX,display.contentCenterY)
-	
-	
-	bgMode = display.newImage(bgGroup,"images/mode.png",display.contentCenterX,display.contentCenterY + 90)
-	
+    
+    bgGroup = self.view
+    bgImage = display.newImage(bgGroup,"images/background_menu.jpg",display.contentCenterX,display.contentCenterY)
+    
+    
+    bgMode = display.newImage(bgGroup,"images/mode.png",display.contentCenterX,display.contentCenterY + 90)
+    
 	--[[
 	adNum = math.random(1,5)
 	adBalloon = display.newImage(bgGroup,"images/ad_balloon.png",display.contentCenterX,display.contentHeight - bufferHeight - 50)
@@ -42,90 +42,91 @@ function scene:createScene(event)
 	adArr = {adBalloon,adDress,ad2048,adSpell,adSpace}
 	
 	adArr[adNum].isVisible = true
-	]]--
-	
+    ]]--
+    
 end
 
 function scene:enterScene(event)
-
-	local channel = SoundManager.play("sound/menu.mp3",{channel=1, loops=-1});
-
-	local function goMode(event)
-		local target = event.target
-		local bounds = target.contentBounds
-		
-		if event.phase == "began" then
-			target:scale(1.25,1.25)
-	        display.getCurrentStage():setFocus( target )
-	        self.isFocus = true
-	    elseif self.isFocus then
-	    	SoundManager.play("sound/selection.wav")
-	        if event.phase == "moved" then
-	        elseif event.phase == "ended" or event.phase == "cancelled" then
-				if(event.x > bounds.xMin  and event.x < bounds.xMax) then
-					if  (event.y > bounds.yMin  and event.y < bounds.yMax) then
-						--SoundControl.Menu()
-						storyboard.gotoScene( "modeScreen", {effect="fade", time=700,params={param1 = channel} })
-					end
-				end
-				target:scale(0.8,0.8)
-	            display.getCurrentStage():setFocus( nil )
-	            target.isFocus = false
-	        end
-	    end
-
+    
+    local channel = SoundManager.play("sound/menu.mp3",{channel=1, loops=-1});
+    
+    local function goMode(event)
+        local target = event.target
+        local bounds = target.contentBounds
+        
+        if event.phase == "began" then
+            target:scale(1.25,1.25)
+            display.getCurrentStage():setFocus( target )
+            self.isFocus = true
+        elseif self.isFocus then
+            
+            if event.phase == "moved" then
+            elseif event.phase == "ended" or event.phase == "cancelled" then
+                if(event.x > bounds.xMin  and event.x < bounds.xMax) then
+                    if  (event.y > bounds.yMin  and event.y < bounds.yMax) then
+                        
+                        SoundManager.play("sound/selection.wav")
+                        storyboard.gotoScene( "modeScreen", {effect="fade", time=700,params={param1 = channel} })
+                    end
+                end
+                target:scale(0.8,0.8)
+                display.getCurrentStage():setFocus( nil )
+                target.isFocus = false
+            end
+        end
+        
     	return true
-	end
-
-
-
-
-	local function goBalloon(event)
-		if event.phase == "began" then
-			system.openURL("amzn://apps/android?p=com.cappoapps.balloonpop" )
-		end
-	end
-	local function goDress(event)
-		if event.phase == "began" then
-			system.openURL("amzn://apps/android?p=com.cappoapps.dressup" )
-		end	
-	end
-	local function goSpell(event)
-		if event.phase == "began" then
-			system.openURL("amzn://apps/android?p=com.cappoapps.spell_the_word" )
-		end	
-	end
-	local function goSpace(event)
-		if event.phase == "began" then
-			system.openURL("amzn://apps/android?p=com.cappoapps.spacejam" )
-		end	
-	end
-	local function go2048(event)
-		if event.phase == "began" then
-			system.openURL("amzn://apps/android?p=com.cappoapps.pro2048" )
-		end	
-	end
-
-
-	bgMode:addEventListener("touch",goMode)
-	
+    end
+    
+    
+    
+    
+    local function goBalloon(event)
+        if event.phase == "began" then
+            system.openURL("amzn://apps/android?p=com.cappoapps.balloonpop" )
+        end
+    end
+    local function goDress(event)
+        if event.phase == "began" then
+            system.openURL("amzn://apps/android?p=com.cappoapps.dressup" )
+        end	
+    end
+    local function goSpell(event)
+        if event.phase == "began" then
+            system.openURL("amzn://apps/android?p=com.cappoapps.spell_the_word" )
+        end	
+    end
+    local function goSpace(event)
+        if event.phase == "began" then
+            system.openURL("amzn://apps/android?p=com.cappoapps.spacejam" )
+        end	
+    end
+    local function go2048(event)
+        if event.phase == "began" then
+            system.openURL("amzn://apps/android?p=com.cappoapps.pro2048" )
+        end	
+    end
+    
+    
+    bgMode:addEventListener("touch",goMode)
+    
 	--[[
 	adDress:addEventListener("touch", goDress)
 	adBalloon:addEventListener("touch", goBalloon)
 	ad2048:addEventListener("touch", go2048)
 	adSpell:addEventListener("touch", goSpell)
 	adSpace:addEventListener("touch", goSpace)
-	]]--
+    ]]--
 end
 
 
 function scene:exitScene(event)
-	
-	
+    
+    
 end
 
 function scene:destroyScene(event)
-	print("destroy")
+    print("destroy")
 end
 
 
