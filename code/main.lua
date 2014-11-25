@@ -8,12 +8,13 @@ require("anim.zoom")
 require("anim.accelerate")
 require("soundManager")
 
+ads = require("ads")
 storyboard = require "storyboard"
 physics = require("physics")
 physicsArrow = require("physics")
 require("ice")
 
-
+ads.init( "admob", "ca-app-pub-2883837174861368/1489836731")
 physics.start()
 physicsArrow.start()
 --physics.setDrawMode( "hybrid" ) -- overlays collision outlines on normal Corona objects

@@ -15,17 +15,12 @@ settings =
  	 	 "landscapeLeft", "landscapeRight", 
  	 	 }, 
 	},
+
+	 plugins =
+    {
+        ["plugin.google.play.services"] =
+        {
+            publisherId = "com.coronalabs"
+        },
+    },
 }
---[[
-settings =
-{
-	orientation =
- 	{
-		default = "landscapeRight",
- 		supported =
- 		{
- 		"landscapeLeft", "landscapeRight"
-		}
-	}
-}
-]]

@@ -16,6 +16,7 @@ function scene:createScene(event)
     _gameMode = event.params.mode
     if _gameMode == "kidMode" then _gameMode = "arcade" end
     LevelBuilder.new(_gameMode,group)
+    ads.show( "banner", { x=0, y=0, appId="ca-app-pub-2883837174861368/1489836731" } )
     --group:insert(_powerGroup)
     
     --	timer.performWithDelay(1200,function(event)
