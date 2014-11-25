@@ -1,4 +1,4 @@
-require "CiderDebugger";require("animations")
+require("animations")
 require("anim.knifeCut")
 require("anim.doubleScore")
 require("anim.arrowBonus")
