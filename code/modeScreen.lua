@@ -30,14 +30,18 @@ function scene:createScene(event)
 		--"images/game.png"
 		}
 		
-	screenGroup = slideView.new( myImages , "images/background_menu.jpg")
+	screenGroup = slideView.new( myImages , "images/option_bg.png")
 	modeGroup:insert(screenGroup)
 end
 
 function scene:enterScene(event)
 
 	local params = event.params
-	channel = params.param1
+        if params == nil then
+            channel = SoundManager.play("sound/menu.mp3",{channel=1, loops=-1});
+        else
+            channel = params.param1
+        end
 	print("destroy")
 	Runtime:addEventListener( "key", onKeyEvent )
 end

@@ -56,6 +56,9 @@ end
 
 function scene:exitScene(event)
     print("exitttttt")
+    if ScoreBox:storeIfHigher( _gameMode, _gameScore ) then
+        _highScoreText.text = _gameScore
+    end
     transition.to(_allEmitters,{time = 1000,alpha = 0})
     Runtime:removeEventListener( "key", onKeyEvent )
 end

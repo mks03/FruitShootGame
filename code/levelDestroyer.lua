@@ -19,7 +19,7 @@ LevelDestroyer = {
 									
 	end,
 	gameReset = function(parentGroup,childGroup)
-		local background = display.newImage(childGroup,"images/background" .. "_menu" .. ".jpg",display.viewableContentWidth/2 , display.viewableContentHeight/2 )
+		local background = display.newImage(childGroup,"images/option_bg.png",display.viewableContentWidth/2 , display.viewableContentHeight/2 )
 		local background = display.newImage(childGroup,"images/black.png",display.viewableContentWidth/2 , display.viewableContentHeight/2 )
 		local background = display.newImage(parentGroup,"images/game_over.png",display.viewableContentWidth/2 , display.viewableContentHeight/2 )
 		local score = display.newText(parentGroup,"1000",550,230,native.systemFont,20)

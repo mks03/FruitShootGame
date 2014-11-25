@@ -47,21 +47,22 @@
 	
 	oneUp = { 
 		start = function(grp,xVal,yVal)
-			local tempScore = _gameScore 
-			if(grp ~= nil)then
-			 transition.to( grp, {time = 1500, x= xVal, y = yVal, alpha = 0.3, transition=easing.outQuad, tag="up",onComplete = function() 
-                                    grp:removeSelf() 
-                                    grp = nil
-                                  --[  local channel = SoundManager.play("sound/point.mp3");
-                                    audio.setMaxVolume( 0.25, { channel=channel } )
-                                    audio.setVolume( 0.15, { channel=channel } )--]
-                                    _scoreText.text = tempScore 
-                                    Animations.beat.start(_scoreText)
-                                    if ScoreBox:storeIfHigher( _gameMode, _gameScore ) then
-                                            _highScoreText.text = _gameScore
-                                    end
-                            end})
-			end
+                    local tempScore = _gameScore 
+                    if(grp ~= nil)then
+                        if ScoreBox:storeIfHigher( _gameMode, _gameScore ) then
+                            _highScoreText.text = _gameScore
+                        end
+                            transition.to( grp, {time = 1500, x= xVal, y = yVal, alpha = 0.3, transition=easing.outQuad, tag="up",onComplete = function() 
+                                grp:removeSelf() 
+                                grp = nil
+                                --[  local channel = SoundManager.play("sound/point.mp3");
+                                audio.setMaxVolume( 0.25, { channel=channel } )
+                                audio.setVolume( 0.15, { channel=channel } )--]
+                                _scoreText.text = tempScore 
+                                Animations.beat.start(_scoreText)
+                                
+                        end})
+                    end
 	end,
 		stop = function()
 			transition.cancel("up")
