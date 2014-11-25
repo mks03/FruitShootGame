@@ -7,7 +7,16 @@ local scene = storyboard.newScene()
 
 storyboard.purgeOnSceneChange = true
 
+local function onKeyEvent(event)
 
+        local phase = event.phase
+
+        if event.phase=="up" and event.keyName=="back" then
+            storyboard.gotoScene("modeScreen", "fade", 500 )
+            return true
+        end
+        return false
+    end
 
 function scene:createScene(event)
     group = nil
@@ -16,7 +25,7 @@ function scene:createScene(event)
     _gameMode = event.params.mode
     if _gameMode == "kidMode" then _gameMode = "arcade" end
     LevelBuilder.new(_gameMode,group)
-    ads.show( "banner", { x=0, y=0, appId="ca-app-pub-2883837174861368/1489836731" } )
+    ads.show( "banner", { x=0, y=display.contentHeight - 50, appId="ca-app-pub-2883837174861368/1489836731" } )
     --group:insert(_powerGroup)
     
     --	timer.performWithDelay(1200,function(event)
@@ -41,12 +50,14 @@ end
 
 function scene:enterScene(event)
     print("destroy")
+    Runtime:addEventListener( "key", onKeyEvent )
 end
 
 
 function scene:exitScene(event)
     print("exitttttt")
     transition.to(_allEmitters,{time = 1000,alpha = 0})
+    Runtime:removeEventListener( "key", onKeyEvent )
 end
 
 function scene:destroyScene(event)

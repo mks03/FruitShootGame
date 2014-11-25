@@ -5,6 +5,18 @@ storyboard.purgeOnSceneChange = true
 
 local screenGroup
 local channel
+
+  local function onKeyEvent(event)
+
+        local phase = event.phase
+
+        if event.phase=="up" and event.keyName=="back" then
+            storyboard.gotoScene("menu", "fade", 500 )
+            return true
+        end
+        return false
+    end
+
 function scene:createScene(event)
 
 	local modeGroup = self.view
@@ -27,12 +39,14 @@ function scene:enterScene(event)
 	local params = event.params
 	channel = params.param1
 	print("destroy")
+	Runtime:addEventListener( "key", onKeyEvent )
 end
 
 
 function scene:exitScene(event)
 	
 	
+	Runtime:removeEventListener( "key", onKeyEvent )
 end
 
 function scene:destroyScene(event)

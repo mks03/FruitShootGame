@@ -59,12 +59,18 @@ function new( imageSet, slideBackground, top, bottom)
     local function action(event)
         SoundManager.play("sound/selection.wav")
         local target = event.target
-        local custom =
-        {
-            mode = target.mode
-        }
-        storyboard.gotoScene( "gameScreen",{ effect = "fade", time =  700 ,params = custom} )
-	
+        
+        if target.mode == "arcade" then
+            system.openURL( "market://search?q=pub:mks@gaakapps" )
+        else
+            local custom =
+            {
+                mode = target.mode
+            }
+            storyboard.gotoScene( "gameScreen",{ effect = "fade", time =  700 ,params = custom} )
+            
+        end
+        
     end
     
     
