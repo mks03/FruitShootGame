@@ -18,7 +18,7 @@ function scene:createScene(event)
 		--"images/game.png"
 		}
 		
-	screenGroup = slideView.new( myImages , "images/bg2.jpg")
+	screenGroup = slideView.new( myImages , "images/background_menu.jpg")
 	modeGroup:insert(screenGroup)
 end
 
