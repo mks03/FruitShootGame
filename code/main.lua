@@ -11,6 +11,7 @@ require("soundManager")
 ads = require("ads")
 storyboard = require "storyboard"
 physics = require("physics")
+-- physics.setDrawMode( "hybrid" )
 physicsArrow = require("physics")
 require("ice")
 
