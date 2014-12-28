@@ -12,13 +12,13 @@ PowerCreate = {
     new = function(grp,x,y)
         
         if _gameMode == "arcade" then
-            powers = {"accelerate","doubleScore","arrowBonus"}
+            powers = {"freeze","zoom","accelerate","doubleScore","arrowSplit","knifeCut","arrowBonus"}
         elseif _gameMode == "timeMode" then
-            powers = {"accelerate","doubleScore","timeBonus"}
+            powers = {"freeze","zoom","accelerate","doubleScore","arrowSplit","knifeCut","timeBonus"}
         end
         local physicsData = (require "shapedefs").physicsData(1.0)
         local powerImg
-        local num = math.random(3)
+        local num = math.random(#powers)
         local powerName = powers[num]
         local powerGap = math.random(7000,25000)
         x,y = math.random(320,700),math.random(400,400)

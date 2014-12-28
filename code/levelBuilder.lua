@@ -3,7 +3,7 @@ require("timerFunctions")
 LevelBuilder = {
     
     new = function(gameMode,grp)
-        _arrowCount = 10
+        _arrowCount = 15
         _gameScore = 0
         _highScore = ScoreBox:retrieve(gameMode)
         --local background = display.newImage(grp,"images/background" .. gameMode .. ".png",display.viewableContentWidth/2 , display.viewableContentHeight/2 )

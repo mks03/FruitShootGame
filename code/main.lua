@@ -7,7 +7,8 @@ require("anim.snow")
 require("anim.zoom")
 require("anim.accelerate")
 require("soundManager")
-
+require("ice")
+require("rateThisApp").rateThis("market://details?id=com.gaakapps.fruitshoot")
 ads = require("ads")
 storyboard = require "storyboard"
 physics = require("physics")
@@ -33,7 +34,7 @@ _tempDoubleScore = 0  -- score for animtio in double score
 score_textSize = 22
 
 _arrowText = nil
-_arrowCount = 10
+_arrowCount = 15
 _highScoreBar = nil
 _highScoreText = nil
 _isFreeze = false
